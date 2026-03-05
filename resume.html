@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Kelvin Kipyego Masai</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Specific styling for the PDF viewer container */
+        .cv-container {
+            width: 100%;
+            height: 80vh; /* Adjusts height to 80% of the viewport */
+            margin-top: 20px;
+            border: 5px solid #444;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .download-box {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <i class="fa-solid fa-k"></i>
+                    <div class="logo-text">Kelvin Kipyego</div>
+                </div>
+                <nav>
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="resume.html" style="color: #007ced;">Resume</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div class="container" style="flex-direction: column; align-items: flex-start;">
+                <div class="hero-text">
+                    <h1>Curriculum Vitae</h1>
+                    <p>ICT Officer | Network Administration | System Security </p>
+                </div>
+
+                <div class="cv-container">
+                    <embed src="Resume/resume.pdf" type="application/pdf" width="100%" height="100%" />
+                </div>
+
+                <div class="download-box">
+                    <p style="color: #e5e5e5; margin-bottom: 15px;">
+                        Can't see the file? <a href="Resume/resume.pdf" target="_blank" style="color: #007ced;">Click here to open in a new tab.</a>
+                    </p>
+                    <a href="Resume/resume.pdf" download class="btn active">
+                        <i class="fa-solid fa-download"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

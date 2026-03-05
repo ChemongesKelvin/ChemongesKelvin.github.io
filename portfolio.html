@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Officer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            scroll-behavior: smooth;
+        }
+        body{
+            overflow-x: hidden;
+            background-color: #1a1a1a;
+            color: #e5e5e5;
+        }
+        .hero-header{
+            width:100%;
+            height: 100%;
+            min-height: 100vh;
+            background: #222;
+        }
+        .wrapper{
+            width:1280px;
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header{
+            padding: 40px 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo i{
+            height: 45px;
+            width:45px;
+            background-color: #007ced;
+            border-radius: 50%;
+            color:#fff;
+            font-weight: 700;
+            font-size: 1.5rem;
+            padding: 10px;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 25px;
+        }
+        .logo .logo-text{
+            font-size: 24px;
+            font-weight: 500;
+            color:#fff;
+        }
+        nav .navlinks{
+            list-style-type: none;
+        }
+        nav .navlinks li{
+            display: inline-block;
+        }
+        nav .navlinks li a{
+             color:#e5e5e5;
+             margin-left: 2.5rem;
+             transition: 0.3s;
+        }
+        nav .navlinks li a:hover{
+            color: #007ced;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top:4rem;
+        }
+        .hero-pic{
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 15px solid #444;
+            box-shadow: 5px 7px 25px rgba(0,0,0,0.5);
+        }
+        .hero-pic img{
+            height: 100%;
+            width:100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .hero-pic img:hover{
+            transform: scale(1.2);
+        }
+        .hero-text{
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+        .hero-text h5{
+            color:#e5e5e5;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .hero-text h5 span{
+            color:#007ced;
+            font-size: 16px;
+        }
+        .hero-text h1{
+            color: #007ced;
+            font-size: 3.5rem;
+            margin: 10px 0;
+        }
+        .hero-text p{
+            color:#e5e5e5;
+            line-height: 1.6;
+        }
+        .btn-group{
+            margin:45px 0;
+        }
+        .btn-group .btn{
+            border-color: #d5d5d5;
+            color:#fff;
+            background-color: #333;
+            padding: 12px 25px;
+            margin-right:10px;
+            border-radius: 30px;
+            border:2px solid #e5e5e5;
+            box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
+            transition: 0.3s;
+        }
+        .btn.active{
+            border-color: #007ced;
+            background-color: #007ced;
+        }
+        .btn:hover:not(.active){
+            border-color: #007ced;
+            color: #007ced;
+        }
+        .hero-text .social i{
+            color: #e5e5e5;
+            font-size: 18px;
+            margin-right: 15px;
+            transition: 0.5s;
+        }
+        .hero-text .social i:hover{
+            color:#007ced;
+            transform: rotate(360deg);
+        }
+
+        section { padding: 80px 0; }
+        h2.section-title {
+            color: #007ced;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: #007ced;
+        }
+
+        /* Experience Cards */
+        .exp-item {
+            background: #2a2a2a;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-left: 5px solid #007ced;
+        }
+        .exp-item h3 { color: #fff; margin-bottom: 5px; }
+        .exp-item span { color: #007ced; font-weight: 500; font-size: 0.9rem; }
+        .exp-item ul { margin-top: 15px; padding-left: 20px; color: #ccc; }
+        .exp-item li { margin-bottom: 8px; }
+
+        /* Skills Grid */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .skill-box {
+            background: #222;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .skill-box h3 { color: #007ced; margin-bottom: 15px; font-size: 1.2rem; }
+        .skill-list { list-style: none; }
+        .skill-list li { margin-bottom: 10px; display: flex; align-items: center; }
+        .skill-list i { color: #007ced; margin-right: 10px; width: 20px; }
+
+        /* Certs Grid */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .cert-card {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .cert-card:hover { background: #007ced; transform: translateY(-5px); }
+
+        @media(max-width:930px) {
+            .container{ flex-direction: column; text-align: center; }
+            .hero-text{ align-items: center; margin-top: 30px; }
+            nav .navlinks{ display: none; } /* Simplified for this version */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <i class="fa-solid fa-k"></i>
+                    <div class="logo-text">Kelvin Kipyego</div>
+                </div>
+                <nav>
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#certifications">Certifications</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div class="container">
+                <div class="hero-pic">
+                    <img src="images/main_photo.jpg" alt="Profile Picture">
+                </div>
+                <div class="hero-text">
+                    <h5><span>ICT OFFICER</span> | NETWORK ADMIN | <span>SYSTEM ADMIN</span> | DATA ANALYST</h5>
+                    <h1>Kelvin Kipyego</h1>
+                    <p>
+                        Proactive IT professional with extensive experience in managing IT service requests, network administration, and system security. 
+                        Skilled in diagnosing complicated technical issues and optimizing infrastructure to reduce downtime.
+                    </p>
+                    <div class="btn-group">
+                        <a href="mailto:kelvinkip717@gmail.com" class="btn active">Contact Me</a>
+                        <a href="Resume/resume.pdf" class="btn">View CV</a>
+                    </div>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/kelvin-k-masai"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/ChemongesKelvin"><i class="fa-brands fa-github"></i></a>
+                        <p style="display: inline; font-size: 14px;"><i class="fa-solid fa-location-dot"></i> Nairobi, Kenya.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="wrapper">
+        <h2 class="section-title">Professional Summary</h2>
+        <p style="line-height: 1.8; font-size: 1.1rem; color: #ccc;">
+            I am an ICT professional with a strong track record of maintaining compliance with ICT policies while providing dependable technical support. 
+            I am experienced in installing and configuring ICT equipment, monitoring backup systems, and implementing solutions to ensure business continuity. 
+            My expertise extends to analyzing and deploying computer programs while ensuring data integrity and security standards.
+        </p>
+    </section>
+
+    <section id="experience" class="wrapper">
+        <h2 class="section-title">Professional Experience</h2>
+        
+        <div class="exp-item">
+            <h3>Desktop Support Officer</h3>
+            <span>Kenya Revenue Authority, Embu | Feb 2025 - March 2026.</span>
+            <ul>
+                <li>Diagnosed and resolved hardware, software, and network-related issues by identifying root causes.</li>
+                <li>Managed user accounts, permissions, and access controls within Active Directory.</li>
+                <li>Monitored network performance and proactively addressed bottlenecks.</li>
+                <li>Performed data backup, restoration, and disaster recovery support.</li>
+            </ul>
+        </div>
+
+        <div class="exp-item">
+            <h3>Junior Desktop Technician Officer</h3>
+            <span>Kenya Revenue Authority | Dec 2023 - Nov 2024 </span>
+            <ul>
+                <li>Provided first-level technical support via phone, email, and ticketing systems.</li>
+                <li>Logged, tracked, and resolved IT support tickets within agreed SLAs.</li>
+                <li>Assisted with onboarding by setting up new user accounts and workstations.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills" class="wrapper">
+        <h2 class="section-title">Skills & Tools</h2>
+        <div class="skills-container">
+            <div class="skill-box">
+                <h3>Technical Skills</h3>
+                <ul class="skill-list">
+                    <li><i class="fa-solid fa-network-wired"></i> Network Configuration (LAN, Routers, Switches) </li>
+                    <li><i class="fa-solid fa-shield-virus"></i> System & Endpoint Security </li>
+                    <li><i class="fa-solid fa-microchip"></i> Hardware Deployment & Maintenance</li>
+                    <li><i class="fa-solid fa-file-export"></i> Backup & Recovery Management </li>
+                    
+                </ul>
+            </div>
+            <div class="skill-box">
+                <h3>Programming & DB</h3>
+                <ul class="skill-list">
+                    <li><i class="fa-solid fa-code"></i> Java, Python, JavaScript, PHP, HTML</li>
+                    <li><i class="fa-solid fa-database"></i> MySQL </li>
+                    <li><i class="fa-solid fa-chart-line"></i> Data Analysis (Excel, Python)</li>
+                </ul>
+            </div>
+            <div class="skill-box">
+                <h3>Software & Tools</h3>
+                <p style="color:#ccc; font-size: 0.9rem;">
+                    ServiceNow ITSM, Wireshark, Packet Tracer, Remote Desktop, TeamViewer, AnyDesk, Zendesk, Jira, and SAP.
+                </p>
+                <h3 style="margin-top:20px;">Soft Skills</h3>
+                <p style="color:#ccc; font-size: 0.9rem;">
+                    Problem-solving, Adaptability, Collaboration, and Clear Communication.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="wrapper">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certs-grid">
+            <div class="cert-card">Cisco Certified Network Associate                CCNA 3</div>
+            <div class="cert-card">Cloud & Network Security Engineer</div>
+            <div class="cert-card">Microsoft Azure Fundamentals</div>
+            <div class="cert-card">Google IT Support</div>
+            <div class="cert-card">Data Analytics Essentials</div>
+            <div class="cert-card">Junior Cybersecurity Analyst</div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; background: #111; color: #555;">
+        <p>&copy; 2026 Kelvin Kipyego Masai.</p>
+    </footer>
+
+</body>
+</html>
